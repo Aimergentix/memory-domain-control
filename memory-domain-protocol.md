@@ -1,6 +1,10 @@
 # The Memory Domain Protocol (MDP)
 
-> Universal Mission Control for Local-First Agents
+> **Author:** Aranda Moller  
+> **Status:** Draft standard | **Version:** 1.2.0    
+> **Tagline:** Universal Mission Control for Local-First Agents</br>
+> **Domain:** Agent state management and local-first orchestration  
+> **Project/Org Label:** Universal Agentic Protocol
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 ![Local-First: Validated](https://img.shields.io/badge/Local--First-Validated-green?style=flat-square)
@@ -188,13 +192,14 @@ STATE_ERR_NOT_FOUND
 sequenceDiagram
     autonumber
     actor Operator
-    participant Prompt as MDP Prompt Layer
-    box rgb(245,245,245) Local-First Runtime
-        participant Router as Control Router
-        participant Policy as Constraint Engine
-        participant Contract as STATE_* Contract
-        participant Store as Domain State Store
-        participant Guard as Output Guard
+    participant Prompt as "MDP Prompt Layer"
+    
+    box #f5f5f5 "Local-First Runtime"
+        participant Router as "Control Router"
+        participant Policy as "Constraint Engine"
+        participant Contract as "STATE_* Contract"
+        participant Store as "Domain State Store"
+        participant Guard as "Output Guard"
     end
 
     Operator->>Prompt: Message + optional control token
@@ -214,6 +219,7 @@ sequenceDiagram
     end
 
     Note over Store,Guard: No assumed cloud memory. Domains, active scope, persistence, and privacy boundaries remain explicit.
+
 ```
 
 ---
